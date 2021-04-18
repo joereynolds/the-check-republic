@@ -78,7 +78,11 @@ check-republic
 
 ## Development
 
-- check-republic is lua 5.3.
+### Dependencies
 
-- check-republic uses `luaunit` for tests
+- lua 5.3
+- `luaunit` for tests
 (You may need the `liblua5.3-dev` package to install luarocks to install luauint)
+- `lfs` (LuaFileSystem) in both the service and CLI
+- `luacheck` - for linting
+- `luastatic` - for building executables
