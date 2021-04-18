@@ -20,7 +20,8 @@ check-republic/
 
 Note the `check.sh` file. This is where our check is performed. It can be in any language.
 As long as you return the appropriate exit code (0 for success, 1 for failure), `check-republic` will know what to do.
-**Naming is important**. Your check files _must_ begin with "check" and your message will be contained within a config file called "config".
+
+**Naming is important**. Your check files _must_ begin with "check" and your configuration will be contained within a "config.lua" file.
 Try and make the check names as descriptive as possible. It will help you in the long run.
 
 ## Check configuration (configs)
