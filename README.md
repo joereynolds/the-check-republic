@@ -22,7 +22,7 @@ Note the `check.sh` file. This is where our check is performed. It can be in any
 As long as you return the appropriate exit code (0 for success, 1 for failure), `check-republic` will know what to do.
 
 **Naming is important**. Your check files _must_ be called "check" and your configuration _must_ be called "config.lua".
-Try and make the names of your checksas descriptive as possible. It will help you in the long run.
+Try and make the names of your checks as descriptive as possible. It will help you in the long run.
 
 ## Check configuration (config.lua)
 
