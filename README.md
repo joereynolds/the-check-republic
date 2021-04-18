@@ -71,3 +71,7 @@ check-republic
 -r, --run=CHECK Manually run a check
 -n, --new=CHECK Create a new check
 ```
+
+## TODO 
+
+- Configurable notification program (currently only planned to be notify-send but should be flexible enough to swap out for others)
