@@ -61,7 +61,7 @@ Often (for me anyway) the problem is discovered too late (`i3status` is not alwa
 
 ## CLI
 
-Whilsy `check-republic` is a service that runs scripts and alerts on them, there is also the `check-republic` CLI
+Whilst `check-republic` is a service that runs scripts and alerts on them, there is also the `check-republic` CLI
 which gives you insight into the checks.
 
 ```
