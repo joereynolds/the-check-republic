@@ -15,7 +15,7 @@ check-republic/
 └── checks
     └── low-battery
         ├── check.sh
-        └── config
+        └── config.lua
 ```
 
 Note the `check.sh` file. This is where our check is performed. It can be in any language.
