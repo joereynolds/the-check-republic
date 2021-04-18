@@ -75,3 +75,10 @@ check-republic
 ## TODO 
 
 - Configurable notification program (currently only planned to be notify-send but should be flexible enough to swap out for others)
+
+## Development
+
+- check-republic is lua 5.3.
+
+- check-republic uses `luaunit` for tests
+(You may need the `liblua5.3-dev` package to install luarocks to install luauint)
