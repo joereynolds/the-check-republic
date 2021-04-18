@@ -66,12 +66,7 @@ which gives you insight into the checks.
 ```
 check-republic 
 
--l, --list    List all checks
-
+-l, --list      List all checks
+-r, --run=CHECK Manually run a check
+-n, --new=CHECK Create a new check
 ```
-
-## TODO 
-
-- Ability to disable checks (add a `disabled` file and that will bypass the check?)
-- Have checks ran at a specific interval
-- 
