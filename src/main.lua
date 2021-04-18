@@ -1,1 +1,1 @@
-print("We're working")
+local lfs = require "lfs"
