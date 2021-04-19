@@ -75,6 +75,7 @@ check-republic
 ## TODO 
 
 - Configurable notification program (currently only planned to be notify-send but should be flexible enough to swap out for others)
+- check config shouldn't be mandatory (though strongly preferred) and should fall back to sensible defaults if non supplied
 
 ## Development
 
