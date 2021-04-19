@@ -15,11 +15,11 @@ For example, a "low battery" check would have the following structure:
 check-republic/
 └── checks
     └── low-battery
-        ├── check.sh
+        ├── check
         └── config.lua
 ```
 
-Note the `check.sh` file. This is where our check is performed. It can be in
+Note the `check` file. This is where our check is performed. It can be in
 any language.  As long as you return the appropriate exit code (0 for success,
 1 for failure), `check-republic` will know what to do.
 
