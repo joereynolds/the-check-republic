@@ -1,11 +1,16 @@
+#!/usr/bin/env lua
 local lfs = require "lfs"
 local config = require "./src/config"
 local notifier = require "./src/notifiers/notify-send"
 
 
-local check_directory = os.getenv("HOME") .. "/.config/check-republic/checks"
-local check_directory_attributes = lfs.attributes(check_directory)
 local path_separator = package.config:sub(1,1)
+local check_directory = os.getenv("HOME")
+    .. path_separator ..".config"
+    .. path_separator .. "check-republic"
+    .. path_separator .. "checks"
+
+local check_directory_attributes = lfs.attributes(check_directory)
 
 if check_directory_attributes == nil then
     print("No check directory found.")
