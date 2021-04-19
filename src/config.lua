@@ -1,11 +1,10 @@
 local lfs = require "lfs"
 local M = {}
 
-
 local function get_default()
     return {
         name = "A check has failed",
-        duration = "5m",
+        rate = "5m",
         message = "Check your system",
         disabled = false
     }
