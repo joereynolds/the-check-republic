@@ -112,3 +112,14 @@ check-republic
 - `lfs` (LuaFileSystem) in both the service and CLI
 - `luacheck` - for linting
 - `luastatic` - for building executables
+
+### Directory Structure
+
+```
+build/    - Build related scripts live here, usually called via the makefile
+dist/     - The most recent executable lives in here
+spec/     - Tests live in here
+src/      - All source code lives in here
+systemd/  - All files related to systemd (service and timers) live here
+```
+

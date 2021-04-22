@@ -1,6 +1,6 @@
-local config = require "./src/config"
-local notifier = require "./src/notifiers/notify-send"
-local util = require "./src/util"
+local config = require "config"
+local notifier = require "notifiers/notify-send"
+local util = require "util"
 local lfs = require "lfs"
 
 local M = {
