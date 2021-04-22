@@ -16,5 +16,8 @@ jobs:
         luarocks install luacheck
         luarocks install luafilesystem
 
+    - name: lint
+      run: luacheck ./src
+
     - name: test
       run: busted
