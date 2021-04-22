@@ -1,10 +1,10 @@
 [Unit]
-Description=Check Republic service
+Description=Check Republic service timer
 StartLimitIntervalSec=0
 
-[Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=joe
-ExecStart=/usr/bin/env lua /home/joe/code/me/check-republic/src/main.lua
+[Timer]
+OnUnitActiveSec=10s
+OnBootSec=10s
+
+[Install]
+WantedBy=timers.target

@@ -21,15 +21,13 @@ function M.run(file)
         return
     end
 
-    if not check_config["disabled"] then
-        if not os.execute(check_file) then
-            os.execute(
-                notifier.get_notify_command(
-                    check_config["name"],
-                    check_config["message"]
-                )
+    if not check_config["disabled"] and not os.execute(check_file) then
+        os.execute(
+            notifier.get_notify_command(
+                check_config["name"],
+                check_config["message"]
             )
-        end
+        )
     end
 end
 
