@@ -1,6 +1,6 @@
 #!/usr/bin/env lua
 local lfs = require "lfs"
-local check = require "./src/check"
+local check = require "check"
 
 local check_directory_attributes = lfs.attributes(check.directory)
 
