@@ -1,5 +1,4 @@
 local config = require "config"
-local notifier = require "notifiers/notify-send"
 local util = require "util"
 local lfs = require "lfs"
 
@@ -14,7 +13,10 @@ function M.run(file)
     local each_check_dir = M.directory .. util.separator .. file .. util.separator
     local config_file = each_check_dir .. "config.lua"
     local check_file = each_check_dir .. "check"
-    local check_config = config.get(config_file)
+    local check_config = config.get_check_config(config_file)
+
+    -- Get the notifier from the user's config
+    local notifier = require("notifiers/" .. config.get(config.location)["notifier"])
 
     if lfs.attributes(check_file) == nil then
         print("No valid check file in " .. each_check_dir)

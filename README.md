@@ -1,6 +1,4 @@
-# Nothing here yet, carry on...
-
-# check-republic
+# check-republic (WIP - Doesn't work yet)
 
 `check-republic` is a system monitoring notification service. Currently it uses
 notify-send as its backend to display warnings to the user about potential
@@ -12,16 +10,17 @@ directory containing the check itself and a configuration file for that check.
 For example, a "low battery" check would have the following structure:
 
 ```
-check-republic/
-└── checks
-    └── low-battery
-        ├── check
-        └── config.lua
+.config/
+└── check-republic/
+    └── checks
+        └── low-battery
+            ├── check
+            └── config.lua
 ```
 
-Note the `check` file. This is where our check is performed. It can be in
-any language.  As long as you return the appropriate exit code (0 for success,
-1 for failure), `check-republic` will know what to do.
+Note the `check` file. This is where our check is performed. It can be in any
+language.  As long as you return the appropriate exit code (0 for success, 1
+for failure), `check-republic` will know what to do.
 
 **Naming is important**. Your check files _must_ be called "check" and your
 configuration (if present) _must_ be called "config.lua".  Try and name the
@@ -34,8 +33,8 @@ specified, check-republic will fall back to sensible(ish) defaults
 ## Check configuration (config.lua)
 
 Each check has a config file that can dictate various things about the check.
-The configuration files are lua files (lua tables, more accurately) 
-but you don't need to be a lua maestro to configure a check.
+The configuration files are lua files (lua tables, more accurately) but you
+don't need to be a lua maestro to configure a check.
 
 ```
 return {
@@ -66,6 +65,24 @@ return {
     message = "Your laptop has low battery. Consider charging it."
 }
 ```
+
+## Top level configuration
+
+check-republic itself takes some configuration values too.  This config file
+should live in `~/.config/check-republic/config.lua`.
+
+Like the other configuration, it's also a `.lua` file.  Currently you can only
+set what kind of `notifier` to use.  Note that only `notify-send` is currently
+supported until people shout loud enough about others they want to use.
+
+Example configuration:
+```
+return {
+    notifier: 'notify-send'
+}
+```
+
+This file is optional. If not specified, it will fall back to using `notify-send`.
 
 ## Beginning the service
 
