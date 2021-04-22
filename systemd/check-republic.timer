@@ -1,6 +1,5 @@
 [Unit]
 Description=Check Republic service timer
-StartLimitIntervalSec=0
 
 [Timer]
 OnUnitActiveSec=10s
