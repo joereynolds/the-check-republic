@@ -4,4 +4,7 @@ Description=Check Republic service
 [Service]
 User=joe
 Type=oneshot
-ExecStart=/home/joe/bin/check-republicd-9b6433e
+Environment="DISPLAY=:0" 
+Environment="XAUTHORITY=/run/user/1000/gdm/Xauthority" 
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus"
+ExecStart=/home/joe/bin/check-republicd
