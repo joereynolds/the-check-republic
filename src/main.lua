@@ -1,19 +1,13 @@
 #!/usr/bin/env lua
-local lfs = require "lfs"
-local check = require "check"
+local commands = require "subcommands/subcommands"
+local subcommand = arg[1]
 
-local check_directory_attributes = lfs.attributes(check.directory)
-
-if check_directory_attributes == nil then
-    print("No check directory found.")
-    print("I couldn't find " .. check.directory)
-    print("Do this:")
-    print("mkdir -p " .. check.directory)
-    os.exit(false)
+if not subcommand or subcommand == '--help' or subcommand == '-h' then
+    commands.help.process()
 end
 
-for file in lfs.dir(check.directory) do
-    if file ~= '.' and file ~= '..' then
-        check.run(file)
+for command, _ in pairs(commands) do
+    if command == subcommand then
+        return commands[command].process()
     end
 end
