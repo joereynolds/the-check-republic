@@ -9,6 +9,7 @@ Options:
 Available commands:
   help     Display this help
   install  Install the check-republic service and daemon
+  list     List all checks
   run      Run all checks]]
 
 function M.process()
