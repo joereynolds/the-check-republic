@@ -1,8 +1,8 @@
 # check-republic (WIP - Doesn't work yet)
 
-`check-republic` is a system monitoring notification service. Currently it uses
-notify-send as its backend to display warnings to the user about potential
-issues.
+`check-republic` is a system monitoring notification service for X11 (If you
+don't know what X11, you're probably already using it). It uses notify-send as
+its backend to display warnings to the user about potential issues.
 
 Checks live under `~/.config/check-republic/checks`.  Each check has a
 directory containing the check itself and a configuration file for that check.
@@ -78,11 +78,12 @@ supported until people shout loud enough about others they want to use.
 Example configuration:
 ```
 return {
-    notifier: 'notify-send'
+    notifier = 'notify-send'
 }
 ```
 
-This file is optional. If not specified, it will fall back to using `notify-send`.
+This file is optional. If not specified, it will fall back to using
+`notify-send`.
 
 ## Beginning the service
 
@@ -117,14 +118,29 @@ check-republic
 
 - Configurable notification program (currently only planned to be notify-send
   but should be flexible enough to swap out for others)
-- A configuration file for `check-republic` itself (what notification program to use)
+
+- Support for more than just X, i.e. wayland (It's untested on Wayland so it
+  could already be working)
+
+## Requirements
+
+Currently check-republic is quite small in the things it supports. As such you
+need the following:
+
+- X11 Window System - This is the default on Ubuntu and most other
+  distributions so you should be fine here
+- `notify-send` - This is the default program to send notifications to on
+  Ubuntu
+
+If you're using a vanilla system with the above (which the majority do),
+check-republic will "just work"
 
 ## Development
 
 ### Dependencies
 
 - lua 5.3
-- `luaunit` for tests
+- `busted` for tests
 (You may need the `liblua5.3-dev` package to install luarocks to install luauint)
 - `lfs` (LuaFileSystem) in both the service and CLI
 - `luacheck` - for linting
@@ -139,4 +155,3 @@ spec/     - Tests live in here
 src/      - All source code lives in here
 systemd/  - All files related to systemd (service and timers) live here
 ```
-
