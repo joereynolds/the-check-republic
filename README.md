@@ -30,6 +30,26 @@ long run.
 The configuration file "config.lua" is optional but recommended. If not
 specified, check-republic will fall back to sensible(ish) defaults
 
+## Quick start
+
+1. Make sure you have a notification server installed (I use `dunst`)
+  1.1 Confirm it's working with `notify-send test`, you should see a notification displayed.
+2. Create the check config directory and an example check
+    ```
+    mkdir -p ~/.config/check-republic/checks/always-fails
+    touch ~/.config/check-republic/checks/always-fails/check
+    sudo chmod a+x ~/.config/check-republic/checks/always-fails/check
+    ```
+3. (optional) configure your check
+  3.1. `touch ~/.config/check-republic/checks/always-fails/config.lua`
+  3.2. Place this code in it
+
+  ```
+  return {
+    message = "Uh oh, your check failed",
+  }
+  ```
+
 ## Check configuration (config.lua)
 
 Each check has a config file that can dictate various things about the check.
@@ -114,14 +134,6 @@ check-republic
 -n, --new=CHECK Create a new check
 ```
 
-## TODO 
-
-- Configurable notification program (currently only planned to be notify-send
-  but should be flexible enough to swap out for others)
-
-- Support for more than just X, i.e. wayland (It's untested on Wayland so it
-  could already be working)
-
 ## Requirements
 
 Currently check-republic is quite small in the things it supports. As such you
@@ -129,6 +141,7 @@ need the following:
 
 - X11 Window System - This is the default on Ubuntu and most other
   distributions so you should be fine here
+- `dunst` (or another notification server) - This is used to display notifications from notification programs like `notify-send`
 - `notify-send` - This is the default program to send notifications to on
   Ubuntu
 
@@ -139,9 +152,9 @@ check-republic will "just work"
 
 ### Dependencies
 
-- lua 5.3
+- lua 5.4
+(You may need the `liblua5.4-dev` package to install luarocks)
 - `busted` for tests
-(You may need the `liblua5.3-dev` package to install luarocks to install luauint)
 - `lfs` (LuaFileSystem) in both the service and CLI
 - `luacheck` - for linting
 - `luastatic` - for building executables

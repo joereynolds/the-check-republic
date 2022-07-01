@@ -19,8 +19,8 @@ describe("The check module", function()
 [Unit]
 Description="Check Republic Service"
 [Service]
-User="joe"
-Type="oneshot"
+User=joe
+Type=oneshot
 Environment="DISPLAY=:0"
 Environment="XAUTH=/bla/bla"
 Environment="DBUS=/blabla"
