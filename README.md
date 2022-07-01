@@ -150,14 +150,11 @@ check-republic will "just work"
 
 ## Development
 
-### Dependencies
+Development is done with `docker` containers but is aliased for convenience in the Makefile.
+Run `docker-compose up` and then you can do any commands within the makefile
 
-- lua 5.4
-(You may need the `liblua5.4-dev` package to install luarocks)
-- `busted` for tests
-- `lfs` (LuaFileSystem) in both the service and CLI
-- `luacheck` - for linting
-- `luastatic` - for building executables
+`make test` - runs the unit tests
+`make check` - lints the code
 
 ### Directory Structure
 

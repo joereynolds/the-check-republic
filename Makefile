@@ -1,14 +1,11 @@
 check:
-	luacheck ./src
+	docker-compose run --rm lua luacheck ./src
 
 executable:
-	./build/create-executable.sh
-
-install:
-	./build/install.sh
+	docker-compose run --rm lua ./build/create-executable.sh
 
 test:
-	busted
+	docker-compose run --rm lua busted
 
 build: check test
 
