@@ -15,6 +15,7 @@ For example, a "low battery" check would have the following structure:
     └── checks
         └── low-battery
             ├── check
+            ├── description
             └── config.lua
 ```
 
@@ -29,6 +30,9 @@ long run.
 
 The configuration file "config.lua" is optional but recommended. If not
 specified, check-republic will fall back to sensible(ish) defaults
+
+The `description` file is optional too. If present, it will display a
+description of the check when you list out all the checks
 
 ## Prerequisites
 
