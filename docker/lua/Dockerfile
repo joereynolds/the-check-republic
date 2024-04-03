@@ -1,9 +1,9 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # Stupid workaround for debian trying to be interactive and helpful
 ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y lua5.3 liblua5.3-dev luarocks
+RUN apt-get update && apt-get install -y lua5.4 liblua5.4-dev luarocks
 RUN luarocks install luafilesystem
 RUN luarocks install busted
 RUN luarocks install luastatic

@@ -10,7 +10,7 @@ function M.get_display()
 end
 
 function M.get_user()
-    return os.getenv("USERNAME")
+    return os.getenv("USERNAME") or os.getenv("USER")
 end
 
 function M.get_display()
