@@ -1,6 +1,6 @@
 local check = require "check"
 local lfs = require "lfs"
-local colours = require "../terminal-colours"
+local colours = require "terminal-colours"
 
 local M = {}
 
