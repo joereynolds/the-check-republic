@@ -1,4 +1,5 @@
 #!/usr/bin/env lua
+
 local commands = require "subcommands/subcommands"
 local subcommand = arg[1]
 
