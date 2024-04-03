@@ -30,6 +30,11 @@ long run.
 The configuration file "config.lua" is optional but recommended. If not
 specified, check-republic will fall back to sensible(ish) defaults
 
+## Prerequisites
+
+- Lua 5.4
+- luafilesystem
+
 ## Quick start
 
 1. Make sure you have a notification server installed (I use `dunst`)
@@ -151,6 +156,7 @@ check-republic will "just work"
 ## Development
 
 Development is done with `docker` containers but is aliased for convenience in the Makefile.
+(The docker containers are only partly useful because you still need lua installed locally for all the daemons etc...)
 Run `docker-compose up` and then you can do any commands within the makefile
 
 `make test` - runs the unit tests
