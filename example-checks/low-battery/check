@@ -1,0 +1,5 @@
+percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+
+if [ $percentage -lt 20 ]; then
+    exit 1;
+fi;
