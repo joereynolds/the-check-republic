@@ -1,10 +1,10 @@
-# check-republic (WIP - Doesn't work yet)
+# check-republic
 
 `check-republic` is an alert system for your local machine.
 It can alert on things like high CPU usage, low battery, incoming emails or
 anything else your brain can think of.
 
-To get started, download the executable and run
+To get started, download the executable and run:
 
 ```
 check-republic run &
@@ -13,7 +13,11 @@ check-republic run &
 (In the future this will be a daemon)
 
 This will set `check-republic` running in the background. 
-There are some example checks which you can copy over.
+
+`check-republic` relies on "check" scripts having been written so it can report on them.
+There are some examples you can copy from in this repo.
+They may not all work for you, just make sure you put them in
+`$XDG_CONFIG_HOME` (/home/you/.config/check-republic/checks/your-custom-check)
 
 ## Custom checks
 
@@ -54,10 +58,10 @@ there is also the `check-republic` CLI which gives you insight into the checks.
 ```
 check-republic 
 
--l, --list       List all checks
--r, --run=CHECK  Manually run a check
--n, --new=CHECK  Create a new check
--e, --edit=CHECK Edit an existing check
+  list       List all checks
+  run=CHECK  Manually run a check
+  new=CHECK  Create a new check (not implemented)
+  edit=CHECK Edit an existing check
 ```
 
 ## Contributions & Development
