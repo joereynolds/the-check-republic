@@ -1,6 +1,6 @@
 # check-republic (WIP - Doesn't work yet)
 
-`check-republic is an alert system for your local machine.
+`check-republic` is an alert system for your local machine.
 It can alert on things like high CPU usage, low battery, incoming emails or
 anything else your brain can think of.
 
@@ -9,6 +9,7 @@ To get started, download the executable and run
 ```
 check-republic run &
 ```
+
 (In the future this will be a daemon)
 
 This will set `check-republic` running in the background. 

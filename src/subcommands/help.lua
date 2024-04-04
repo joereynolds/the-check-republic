@@ -10,7 +10,8 @@ Available commands:
   help     Display this help
   install  Install the check-republic service and daemon
   list     List all checks
-  run      Run all checks]]
+  run      Run all checks
+  edit     Edit a check]]
 
 function M.process()
     print(usage)
