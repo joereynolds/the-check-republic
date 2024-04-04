@@ -9,7 +9,6 @@ For example, a "low battery" check would have the following structure:
     └── checks
         └── low-battery
             ├── check
-            ├── description
             └── config.lua
 ```
 
@@ -40,6 +39,11 @@ return {
     -- Default is inferred from the directory's name
     name = "the name of my check",
 
+    -- The description of what this check does
+    -- This will be displayed when you call
+    --   check-republic list
+    description = "The description of my check"
+
     -- Valid values are "xm" or "xh" where x is the number of minutes/hours you wish to run the script
     -- Default is 5m
     rate = "5m",
@@ -58,6 +62,7 @@ return {
 
 ```
 return {
+    description = "Alerts when your battery is < 10%",
     name = "Low Battery",
     rate = "5m",
     message = "Your laptop has low battery. Consider charging it."

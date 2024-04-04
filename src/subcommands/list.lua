@@ -1,6 +1,7 @@
 local check = require "check"
 local lfs = require "lfs"
 local colours = require "terminal-colours"
+local config = require "config"
 
 local M = {}
 
@@ -14,15 +15,15 @@ function M.process()
             io.write(colours.green .. file .. colours.reset)
             local check_files = check.directory .. '/' .. file .. '/'
 
-            for check_file in lfs.dir(check_files) do
-                if check_file == 'description' then
-                    local description = io.open(check_files .. check_file):read("*a")
-                    io.write(' - ' .. description)
-                end
+            local c = config.get_check_config(check_files .. 'config.lua')
+
+            if c.description ~= nil then
+                io.write(' - ' .. c.description)
             end
+
+            print()
         end
     end
-    print()
 end
 
 return M
