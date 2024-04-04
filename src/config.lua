@@ -35,6 +35,8 @@ function M.get_check_config(check_config_file)
         -- Provide sensible defaults for values not supplied
         check_config["name"] = check_config["name"] or check_config_file
         check_config["message"] = check_config["message"] or "This check has failed."
+        check_config["level"] = check_config["level"] or "normal"
+
         return check_config
     end
 

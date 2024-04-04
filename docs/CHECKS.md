@@ -1,5 +1,6 @@
-Checks live under `~/.config/check-republic/checks`.  Each check has a
-directory containing the check itself and a configuration file for that check.
+Checks live under `~/.config/check-republic/checks`.
+Each check has a directory containing the check itself and an (optional)
+configuration file for that check.
 
 For example, a "low battery" check would have the following structure:
 
@@ -12,26 +13,26 @@ For example, a "low battery" check would have the following structure:
             └── config.lua
 ```
 
-Note the `check` file. This is where our check is performed. It can be in any
-language.  As long as you return the appropriate exit code (0 for success, 1
-for failure), `check-republic` will know what to do.
+There are two files for each check:
 
-**Naming is important**. Your check files _must_ be called "check" and your
-configuration (if present) _must_ be called "config.lua".  Try and name the
-directory of your checks as descriptive as possible. It will help you in the
-long run.
+1) check
+
+This is where our check is performed. It can be in any language.  As long as
+you return the appropriate exit code (`0` for success, `1` for failure),
+`check-republic` will know what to do.
+
+2) config.lua
 
 The configuration file "config.lua" is optional but recommended. If not
-specified, check-republic will fall back to sensible(ish) defaults
+specified, `check-republic` will fall back to sensible defaults.
 
-The `description` file is optional too. If present, it will display a
-description of the check when you list out all the checks
+## Configuration values
 
-## Check configuration (config.lua)
-
-Each check has a config file that can dictate various things about the check.
+Each check has a config.lua file that can dictate various things about the check.
 The configuration files are lua files (lua tables, more accurately) but you
 don't need to be a lua maestro to configure a check.
+
+Note that all config values are optional. Only specify what you need.
 
 ```
 return {
@@ -46,6 +47,7 @@ return {
 
     -- Valid values are "xm" or "xh" where x is the number of minutes/hours you wish to run the script
     -- Default is 5m
+    -- (currently not implemented)
     rate = "5m",
 
     -- The message to display on failure
@@ -55,6 +57,11 @@ return {
     -- Whether or not we should run this check
     -- Default is false
     disabled = true
+
+    -- What 'level' the alert is.
+    -- Accepted values are "low", "normal", and "critical"
+    -- Default is "normal"
+    level = "normal"
 }
 ```
 
@@ -65,6 +72,7 @@ return {
     description = "Alerts when your battery is < 10%",
     name = "Low Battery",
     rate = "5m",
-    message = "Your laptop has low battery. Consider charging it."
+    message = "Your laptop has low battery. Consider charging it.",
+    level = "critical"
 }
 ```

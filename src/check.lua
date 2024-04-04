@@ -27,7 +27,8 @@ function M.run(file)
         os.execute(
             notifier.get_notify_command(
                 check_config["name"],
-                check_config["message"]
+                check_config["message"],
+                check_config["level"]
             )
         )
     end
