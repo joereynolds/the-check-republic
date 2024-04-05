@@ -10,8 +10,9 @@ function M.process()
         return
     end
 
-    file_to_edit = check.directory .. '/' .. arg[2] .. '/' .. 'check'
-    os.execute("$EDITOR " .. file_to_edit)
+    check_file_to_edit = check.directory .. '/' .. arg[2] .. '/' .. 'check'
+    config_file_to_edit = check.directory .. '/' .. arg[2] .. '/' .. 'config.lua'
+    os.execute("$EDITOR " .. check_file_to_edit .. " " .. config_file_to_edit)
 end
 
 return M

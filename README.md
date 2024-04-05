@@ -14,15 +14,61 @@ check-republic run &
 
 This will set `check-republic` running in the background. 
 
-`check-republic` relies on "check" scripts having been written so it can report on them.
-There are some examples you can copy from in this repo.
-They may not all work for you, just make sure you put them in
-`$XDG_CONFIG_HOME` (/home/you/.config/check-republic/checks/your-custom-check)
+`check-republic` relies on "check" scripts having been written so it can report
+on them. There are some examples you can copy from in this repo. They may not
+all work for you, just make sure you put them in `$XDG_CONFIG_HOME`
+(/home/you/.config/check-republic/checks/your-custom-check).
 
-## Custom checks
+Once you have added some checks, you can test them with `check-republic run`.
 
-If you'd like to get started on writing your own checks, read more
-[here](docs/CHECKS.md).
+To get the most out of `check-republic`, It's recommended you get started on
+writing your own checks, read more [here](docs/CHECKS.md).
+
+## CLI
+
+Whilst `check-republic` is a service that runs scripts and alerts on them,
+It's also a CLI to help you manage your checks
+
+```
+Usage: check-republic SUBCOMMAND
+Options:
+  -h, --help  Display this help
+Available commands:
+  edit     Edit a check
+  help     Display this help
+  install  Install the check-republic service and daemon (not implemented)
+  list     List all checks
+  run      Run all checks
+```
+
+### Command line options
+
+#### `-h`, `--help`, `help`
+
+Display the help and exit
+
+#### `list`
+
+Lists all the checks that live in `$XDG_CONFIG_HOME/check-republic/checks`
+along with their optional description.
+
+#### `run`
+
+Runs all the checks that live in `$XDG_CONFIG_HOME/check-republic/checks`
+along with their optional description.
+
+Note that this isn't in a loop, this is a one-off run of all your checks.
+Useful to debug your checks as you're writing them.
+
+#### `edit`
+
+Opens up the specified check and the respective config.lua in your `$EDITOR`.
+
+For example:
+
+```
+check-republic edit low-battery
+```
 
 ## Top level configuration
 
@@ -30,8 +76,8 @@ check-republic itself takes some configuration values too.  This config file
 should live in `~/.config/check-republic/config.lua`.
 
 Like the other configuration, it's also a `.lua` file.  Currently you can only
-set what kind of `notifier` to use.  Note that only `notify-send` is currently
-supported until people shout loud enough about others they want to use.
+set what kind of `notifier` to use.  Only `notify-send` is supported until
+people shout loud enough about others they want to use.
 
 Example configuration:
 ```
@@ -49,20 +95,6 @@ Not all desktop environments or window managers have out of the box
 notifications and alerts.  i3 strives for simplicity and minimalism at the
 expense of notifying and alerting.  Often (for me anyway) the problem is
 discovered too late (`i3status` is not always enough).
-
-## CLI
-
-Whilst `check-republic` is a service that runs scripts and alerts on them,
-there is also the `check-republic` CLI which gives you insight into the checks.
-
-```
-check-republic 
-
-  list       List all checks
-  run=CHECK  Manually run a check
-  new=CHECK  Create a new check (not implemented)
-  edit=CHECK Edit an existing check
-```
 
 ## Contributions & Development
 
